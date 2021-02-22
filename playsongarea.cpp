@@ -22,16 +22,7 @@
 
 PlaySongArea::PlaySongArea(QWidget *parent) : QWidget(parent)
 {
-
     setFixedHeight(68);
-
-    sliderWid = new SliderWidget(parent);
-    MotifWmHints hint;
-    hint.flags = MWM_HINTS_FUNCTIONS|MWM_HINTS_DECORATIONS;
-    hint.functions = MWM_FUNC_ALL;
-    hint.decorations = MWM_DECOR_BORDER;
-    XAtomHelper::getInstance()->setWindowMotifHint(sliderWid->winId(), hint);
-    sliderWid->hide();
 
     mybeforeList = new BeforePlayList(parent);
     MotifWmHints hints;
@@ -77,9 +68,6 @@ void PlaySongArea::playcolor(bool isplay)
         nextBtn->setStyleSheet("QPushButton{background:transparent;border-radius:15px;border-image:url(:/img/dark/nextsong.png);}"
                                "QPushButton::hover{border-image:url(:/img/hover/nextsong.png);}"
                                "QPushButton::pressed{border-image:url(:/img/clicked/nextsong.png);}");
-
-//        volumeBtn->setStyleSheet("QPushButton{background:transparent;border-image:url(:/img/dark/icon_volume_large_w@2x.png)}");
-//        volumeBtn->setIcon(QIcon(":/img/dark/icon_volume_large_w@2x.png"));
 
 //        likeMusicBtn->setStyleSheet("QPushButton{background:transparent;border-image:url(:/img/dark/icon_love2_b@2x.png)}");
         likeMusicBtn->setIcon(QIcon(":/img/dark/icon_love2_b@2x.png"));
@@ -138,8 +126,6 @@ void PlaySongArea::playcolor(bool isplay)
                                "QPushButton::hover{border-image:url(:/img/hover/nextsong.png);}"
                                "QPushButton::pressed{border-image:url(:/img/clicked/nextsong.png);}");
 
-//        volumeBtn->setStyleSheet("QPushButton{background:transparent;border-radius:4px;}");
-
         likeMusicBtn->setStyleSheet("QPushButton{border-image:url(:/img/default/loveblack2.png);}"
                                     "QPushButton::hover{border-image:url(:/img/clicked/love2.png);}"
                                     "QPushButton::pressed{border-image:url(:/img/clicked/love1h.png);}");
@@ -187,7 +173,7 @@ void PlaySongArea::initWidget()
     nextBtn->setToolTip(tr("The following piece"));
 
 
-    volumeBtn = new QPushButton;
+    volumeBtn = new QPushButton(this);
     volumeBtn->setFixedSize(16,16);
     volumeBtn->setCursor(Qt::PointingHandCursor);
     volumeBtn->setIcon(QIcon::fromTheme("audio-volume-high-symbolic"));

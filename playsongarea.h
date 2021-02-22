@@ -40,7 +40,6 @@
 #include "widgetstyle.h"
 #include "allpupwindow.h"
 #include "musicDataBase.h"
-#include "sliderwidget.h"
 
 class PlaySongArea : public QWidget
 {
@@ -68,7 +67,6 @@ public:
     QLabel *songNameofNowPlaying;
 
     BeforePlayList *mybeforeList;
-    SliderWidget *sliderWid;
     void playcolor(bool isplay);
     void songText(QString songName);   // 正在播放
 

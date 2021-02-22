@@ -1,3 +1,9 @@
+kylin-music (1.0.52kord~rc6) v101; urgency=medium
+
+  * 优化音量进度条和逻辑.
+
+ -- liujialin <liujialin@kylinos.cn>  Mon, 22 Feb 2021 15:58:34 +0800
+
 kylin-music (1.0.52kord~rc5) v101; urgency=medium
 
   * 增加一些label汉化样式.

@@ -162,6 +162,13 @@ void MainWid::initControlse()//初始化控件
 //        hint.decorations = MWM_DECOR_BORDER;
 //        XAtomHelper::getInstance()->setWindowMotifHint(vSliderDialog->winId(), hint);
         //        vSliderDialog->setWindowFlags(Qt::FramelessWindowHint);
+        sliderWid = new SliderWidget(myPlaySongArea->volumeBtn);
+        MotifWmHints hint;
+        hint.flags = MWM_HINTS_FUNCTIONS|MWM_HINTS_DECORATIONS;
+        hint.functions = MWM_FUNC_ALL;
+        hint.decorations = MWM_DECOR_BORDER;
+        XAtomHelper::getInstance()->setWindowMotifHint(sliderWid->winId(), hint);
+        sliderWid->hide();
 
 //        vSlider = new Slider;
 //        vSlider->installEventFilter(this);
@@ -313,7 +320,7 @@ void MainWid::onPlaylistChanged(int index)
 }
 void MainWid::initAction()//初始化事件
 {
-    connect(myPlaySongArea->sliderWid->vSlider,&QSlider::valueChanged,this,&MainWid::changeVolume);
+    connect(sliderWid->vSlider,&QSlider::valueChanged,this,&MainWid::changeVolume);
 
     connect(myTitleBar->miniBtn,&QPushButton::clicked,this,&MainWid::slot_showMiniWidget);
     connect(m_MiniWidget->m_recoveryWinBtn,&QPushButton::clicked,this,&MainWid::slot_recoverNormalWidget);
@@ -399,8 +406,6 @@ void MainWid::initAction()//初始化事件
     QShortcut *subvSlider=new QShortcut(Qt::Key_S,this);
     connect(subvSlider,&QShortcut::activated,this,&MainWid::subvSlider_slot);
     connect(myPlaySongArea->volumeBtn,&QPushButton::clicked,this,&MainWid::show_volumeBtn);
-    myPlaySongArea->sliderWid->raise();
-    myPlaySongArea->volumeBtn->setCheckable(true);
     connect(myPlaySongArea->mybeforeList->emptyBtn,SIGNAL(clicked(bool)),this,SLOT(clear_HistoryPlayList()));
 
     int ret;
@@ -709,7 +714,8 @@ void MainWid::keyPressEvent(QKeyEvent *event)
 void MainWid::resizeEvent(QResizeEvent *event)
 {
     myPlaySongArea->mybeforeList->setGeometry(width() - 310,-10,320,height() - 68);
-    myPlaySongArea->sliderWid->setGeometry(width() - 125,height() - 142,30,90);
+    moveSliderWid();
+    QWidget::resizeEvent(event);
 }
 
 #include <QPropertyAnimation>
@@ -761,8 +767,8 @@ void MainWid::slot_showMaximized()
     }
     else
     {
-//        showMaximized();
-        showFullScreen();
+        showMaximized();
+//        showFullScreen();
         Minimize = true;
         myTitleBar->maximumBtn->setIcon(QIcon::fromTheme("window-restore-symbolic"));
 //                maximumBtn->setToolTip(tr("还原"));
@@ -3246,11 +3252,11 @@ bool MainWid::eventFilter(QObject *obj, QEvent *event)   //鼠标滑块点击
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
             if (mouseEvent->button() == Qt::LeftButton) //判断左键
             {
-               int dur = hSlider->maximum() - hSlider->minimum();
-               int pos = hSlider->minimum() + dur * ((double)mouseEvent->x() / hSlider->width());
-               if(pos != hSlider->sliderPosition())
+                int dur = hSlider->maximum() - hSlider->minimum();
+                int pos = hSlider->minimum() + dur * ((double)mouseEvent->x() / hSlider->width());
+                if(pos != hSlider->sliderPosition())
                 {
-                  hSlider->setValue(pos);
+                    hSlider->setValue(pos);
                 }
             }
         }
@@ -3506,14 +3512,38 @@ void MainWid::showBeforeList()
 
 void MainWid::show_volumeBtn()
 {
-    if(myPlaySongArea->volumeBtn->isChecked() == true)
+    if(sliderWid->isVisible())
     {
-        myPlaySongArea->sliderWid->show();
+        sliderWid->hide();
     }
     else
     {
-        myPlaySongArea->sliderWid->hide();
+        moveSliderWid();
+        sliderWid->show();
+        sliderWid->raise();
     }
+}
+
+void MainWid::moveSliderWid()
+{
+    QPoint volumePos = myPlaySongArea->volumeBtn->mapToGlobal(myPlaySongArea->volumeBtn->rect().center());
+//    QPoint volume = myPlaySongArea->volumeBtn->mapToGlobal(myPlaySongArea->volumeBtn->rect().topLeft());
+//    qDebug()<<"音量左上点"<<volume.x();
+//    qDebug()<<"音量左上点"<<volume.y();
+
+    sliderWid->adjustSize();
+    QSize size = sliderWid->size();
+    volumePos.setX(volumePos.x() - size.width() / 2);
+    volumePos.setY(volumePos.y() - size.height() - 25);
+//    volumePos = sliderWid->mapFromGlobal(volumePos);
+//    volumePos = sliderWid->mapToParent(volumePos);
+    QSize volumSize = myPlaySongArea->volumeBtn->size();
+    int newPosX = volumePos.x() + size.width() / 2 - volumSize.width() / 2 + 1;
+    int newPosY = volumePos.y() + 25 + size.height() - volumSize.height() / 2 + 1;
+    sliderWid->changeVolumePos(newPosX, newPosY, volumSize.width(), volumSize.height());
+    sliderWid->move(volumePos);
+//    qDebug()<<"改变后音量的位置"<<volumePos.x();
+//    qDebug()<<"改变后音量的位置"<<volumePos.y();
 }
 
 void MainWid::changeVolume(int values)
@@ -3579,23 +3609,23 @@ void MainWid::mousePressEvent(QMouseEvent *event)
 
 void MainWid::addvSlider_slot()
 {
-    myPlaySongArea->sliderWid->vSlider->show();
-    int values = myPlaySongArea->sliderWid->vSlider->value();
+    sliderWid->vSlider->show();
+    int values = sliderWid->vSlider->value();
     if(values < 100)
     {
         values++;
-        myPlaySongArea->sliderWid->vSlider->setValue(values);
+        sliderWid->vSlider->setValue(values);
     }
 }
 void MainWid::subvSlider_slot()
 {
-    myPlaySongArea->sliderWid->vSlider->show();
-    int values = myPlaySongArea->sliderWid->vSlider->value();
+    sliderWid->vSlider->show();
+    int values = sliderWid->vSlider->value();
     if(values > 0)
     {
 
         values--;
-        myPlaySongArea->sliderWid->vSlider->setValue(values);
+        sliderWid->vSlider->setValue(values);
     }
 }
 

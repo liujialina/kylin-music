@@ -276,6 +276,7 @@ private:
     void initDaemonIpcDbus();//用户手册
     void initDataBase();//数据库
 
+    void moveSliderWid();
     // 用户手册功能
     DaemonIpcDbus *mDaemonIpcDbus;
 
@@ -287,6 +288,8 @@ private:
 //    ChangeListWid *nullMusicWid;      //删除歌曲
     PlaySongArea *myPlaySongArea;
     SongInfoWidget *mySongInfoWidget;
+    SliderWidget *sliderWid;
+
 //    menuModule *menumodule;
     //文件拖拽功能
 
