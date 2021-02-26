@@ -43,7 +43,7 @@ void ChangeListWid::initStack()
     QVBoxLayout *vAddFolderLayout = new QVBoxLayout(this);
 
     songListLabel = new QLabel(this);
-    songListLabel->setGeometry(30,18,104,30);
+    songListLabel->setGeometry(30,18,120,30);
 //    songListLabel->setText("歌曲列表");
     songListLabel->setText(tr("Song list"));
 
