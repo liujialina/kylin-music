@@ -79,30 +79,22 @@ void SongItem::itemcolor(int type)
     if(type == 1)
     {
 
-        songNameLabel->setStyleSheet("font-size: 14px;\
-                                      \
-                                     font-weight: 400;\
+        songNameLabel->setStyleSheet("font-weight: 400;\
                                      color: #F9F9F9;\
                                      line-height: 14px;");
 
         songTimeLabel->setStyleSheet("width: 35px;\
                                      height: 14px;\
-                                     font-size: 14px;\
-                                      \
                                      font-weight: 400;\
                                      color: #F9F9F9;\
                                      line-height: 14px;");
 
-        singerLabel->setStyleSheet("font-size: 14px;\
-                                    \
-                                   font-weight: 400;\
+        singerLabel->setStyleSheet("font-weight: 400;\
                                    color: #F9F9F9;\
                                    line-height: 14px;");
 
 
-        albumLabel->setStyleSheet("font-size: 14px;\
-                                   \
-                                  font-weight: 400;\
+        albumLabel->setStyleSheet("font-weight: 400;\
                                   color: #F9F9F9;\
                                   line-height: 14px;");
 
@@ -116,30 +108,22 @@ void SongItem::itemcolor(int type)
     }
     else if(type==0)
     {
-        songNameLabel->setStyleSheet("font-size: 14px;\
-                                      \
-                                     font-weight: 400;\
+        songNameLabel->setStyleSheet("font-weight: 400;\
                                      color: #303133;\
                                      line-height: 14px;");
 
         songTimeLabel->setStyleSheet("width: 35px;\
                                      height: 14px;\
-                                     font-size: 14px;\
-                                      \
                                      font-weight: 400;\
                                      color: #303133;\
                                      line-height: 14px;");
 
-        singerLabel->setStyleSheet("font-size: 14px;\
-                                    \
-                                   font-weight: 400;\
+        singerLabel->setStyleSheet("font-weight: 400;\
                                    color: #303133;\
                                    line-height: 14px;");
 
 
-        albumLabel->setStyleSheet("font-size: 14px;\
-                                   \
-                                  font-weight: 400;\
+        albumLabel->setStyleSheet("font-weight: 400;\
                                   color: #303133;\
                                   line-height: 14px;");
 
@@ -251,24 +235,18 @@ void HistoryListItem::itemcolor()
 
         songNameLabel->setStyleSheet("width: 112px;\
                                      height: 14px;\
-                                     font-size: 14px;\
-                                      \
                                      font-weight: 400;\
                                      color: #F9F9F9;\
                                      line-height: 14px;");
 
         songTimeLabel->setStyleSheet("width: 35px;\
                                      height: 14px;\
-                                     font-size: 14px;\
-                                      \
                                      font-weight: 400;\
                                      color: #F9F9F9;\
                                      line-height: 14px;");
 
         singerLabel->setStyleSheet("width: 56px;\
                                    height: 14px;\
-                                   font-size: 14px;\
-                                    \
                                    font-weight: 400;\
                                    color: #F9F9F9;\
                                    line-height: 14px;");
@@ -278,24 +256,18 @@ void HistoryListItem::itemcolor()
     {
         songNameLabel->setStyleSheet("width: 112px;\
                                      height: 14px;\
-                                     font-size: 14px;\
-                                      \
                                      font-weight: 400;\
                                      color: #303133;\
                                      line-height: 14px;");
 
         songTimeLabel->setStyleSheet("width: 35px;\
                                      height: 14px;\
-                                     font-size: 14px;\
-                                      \
                                      font-weight: 400;\
                                      color: #303133;\
                                      line-height: 14px;");
 
         singerLabel->setStyleSheet("width: 56px;\
                                    height: 14px;\
-                                   font-size: 14px;\
-                                    \
                                    font-weight: 400;\
                                    color: #303133;\
                                    line-height: 14px;");

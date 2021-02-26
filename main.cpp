@@ -138,28 +138,71 @@ int main(int argc, char *argv[])
 #endif
     //qDebug() << "=================argc is " <<argc << argv[0] << argv[1];
 
-    QString str = "";
-    str = argv[1];
-    if (str!="")
+    QStringList strList;
+    QString str1;
+    for(int i = 0; i < argc;i++)
     {
-        if(str=="--help")//帮助
+        str1 = argv[i];
+        strList << str1;
+    }
+    QString str = "";
+    QString str2 = "";
+    QString str3 = "";
+    if(strList.size() > 1)
+    {
+        str = argv[1];
+        if(strList.size() == 4)
+        {
+            str2 = argv[2];
+            str3 = argv[3];
+        }
+    }
+    if (str != "")
+    {
+        if(str=="--help"||str=="--h")//帮助
         {
             qDebug()<<"\nkylin-music [cmd]\n"
                       "-b -back  上一首\n"
                       "-n -next  下一首\n"
                       "-p -pause  暂停\n"
-                      "-s -start  播放\n";
+                      "-s -start  播放\n"
+                      "-i -increase  调高音量\n"
+                      "-r -reduce    调低音量\n"
+                      "-S -Sequential           顺序播放\n"
+                      "-C -CurrentItemInLoop    单曲循环\n"
+                      "-L -Loop                 列表循环\n"
+                      "-R -Random               随机播放\n"
+                      "-m    int int 窗口移动"
+                      "-move int int 窗口移动"
+                      "-c -close     关闭窗口";
             return 0;
         }
         //如果参数不是命令也不是文件路径，则退出
-        if(!QFileInfo::exists(str)&&str!="-b"&&str!="-back"&&str!="-n"&&str!="-next"&&str!="-p"&&str!="-pause"&&str!="-s"&&str!="-start")
+        if(!QFileInfo::exists(str)&&str!="-b"&&str!="-back"&&str!="-n"&&str!="-next"&&str!="-p"&&str!="-pause"&&
+                str!="-s"&&str!="-start"&&str!="-i"&&str!="-increase"&&str!="-r"&&str!="-reduce"&&str!="-S"&&
+                str!="-Sequential"&&str!="-C"&&str!="-CurrentItemInLoop"&&str!="-L"&&str!="-Loop"&&str!="-R"&&
+                str!="-Random"&&str!="-m"&&str!="-move"&&str!="-c"&&str!="-close")
         {
-            qDebug()<<"参数不合规，请使用--help参数获取帮助";
+            qDebug()<<"参数不合规，请使用--h或者--help参数获取帮助";
             return -1;
         }
+        if(str == "-m"||str == "-move")
+        {
+            if(str2!=""&&str3!="")
+            {
+                bool ok1;
+                bool ok2;
+                str2.toInt(&ok1);
+                str3.toInt(&ok2);
+                if(!ok1 || !ok2)
+                {
+                    qDebug()<<"参数不合规，请使用--h或者--help参数获取帮助";
+                    return -1;
+                }
+            }
+        }
     }
-    qDebug()<< " str "<< str;
-    MainWid w(str);
+    MainWid w(strList);
 
     // 添加窗管协议
     MotifWmHints hints;

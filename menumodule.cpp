@@ -162,8 +162,12 @@ void menuModule::helpAction(){
 #if DEBUG_MENUMODULE
     appName = "tools/kylin-music";
 #endif
-    DaemonIpcDbus *ipcDbus = new DaemonIpcDbus();
-    if(!ipcDbus->daemonIsNotRunning()){
+    if(!ipcDbus)
+    {
+        ipcDbus = new DaemonIpcDbus();
+    }
+    if(!ipcDbus->daemonIsNotRunning())
+    {
         ipcDbus->showGuide(appName);
     }
 }
@@ -218,7 +222,6 @@ QHBoxLayout* menuModule::initTitleBar(){
     connect(titleBtnClose,&QPushButton::clicked,[=](){aboutWindow->close();});
     QHBoxLayout *hlyt = new QHBoxLayout;
     titleText->setText(tr("kylin music"));
-    titleText->setStyleSheet("font-size:14px;");
     hlyt->setSpacing(0);
     hlyt->setMargin(4);
     hlyt->addSpacing(4);
@@ -234,23 +237,19 @@ QVBoxLayout* menuModule::initBody(){
     QLabel* bodyIcon = new QLabel();
     bodyIcon->setFixedSize(96,96);
     bodyIcon->setPixmap(QPixmap::fromImage(QImage(iconPath)));
-    bodyIcon->setStyleSheet("font-size:14px;");
     bodyIcon->setScaledContents(true);
     bodyAppName->setFixedHeight(28);
 //    bodyAppName->setText(tr(appShowingName.toLocal8Bit()));
     bodyAppName->setText(tr("kylin music"));
-    bodyAppName->setStyleSheet("font-size:18px;");
     QLabel* bodyAppVersion = new QLabel();
     bodyAppVersion->setFixedHeight(24);
     bodyAppVersion->setText(tr("Version: ") + appVersion);
     bodyAppVersion->setAlignment(Qt::AlignLeft);
-    bodyAppVersion->setStyleSheet("font-size:14px;");
     connect(bodySupport,&QLabel::linkActivated,this,[=](const QString url){
         QDesktopServices::openUrl(QUrl(url));
     });
     bodySupport->setContextMenuPolicy(Qt::NoContextMenu);
     bodySupport->setFixedHeight(24);
-    bodySupport->setStyleSheet("font-size:14px;");
     QVBoxLayout *vlyt = new QVBoxLayout;
     vlyt->setMargin(0);
     vlyt->setSpacing(0);

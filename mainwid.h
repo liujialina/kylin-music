@@ -104,7 +104,7 @@ signals:
     void addFile(const QStringList &addFile);  //发送拖拽添加歌曲
 
 public:
-    MainWid(QString str, QWidget *parent = nullptr);
+    MainWid(QStringList str, QWidget *parent = nullptr);
     ~MainWid();
 //    MainWid(QWidget *);
 //    QString getMp3FileName(QString sqlName);
@@ -130,6 +130,11 @@ public:
     void albumCover_local();          //本地专辑
     void albumCover_playlist();       //歌单专辑
 
+    void playMode_Sequential();
+    void playMode_CurrentItemInLoop();
+    void playMode_Loop();
+    void playMode_Random();
+    void moveMainWid(QString newWidth, QString newHeight);
     void initAddPlayList(int num);   //新建歌单，把歌单中的歌曲进行初始化
     static MainWid *mutual;          //指针类型静态成员变量
 
@@ -161,7 +166,7 @@ public:
     QString MD5Str;
     QStringList MD5List;
 
-    QString argName;
+    QStringList argName;
 
     QList<MusicPath> MusicPathList;
 
@@ -177,7 +182,7 @@ public:
 
 public slots:
     void menuModuleSetThemeStyle(QString str);//切换主题槽函数
-    int kylin_music_play_request(QString path);
+    int kylin_music_play_request(QString cmd1, QString cmd2 = "", QString cmd3 = "");
     void play_Song();   //播放和暂停
     void pause();
     void play();
@@ -195,9 +200,9 @@ public slots:
     void on_historyWidget_doubleClicked(QListWidgetItem *item);      //双击历史列表播放
     void Music_stateChang(QMediaPlayer::State state);//播放状态改变
     void Music_playlist_stateChang(QMediaPlayer::State state);
-    void on_lastBtn_clicked();             //上一首
+    void playPre();             //上一首
 //    void on_playlist_lastBtn_clicked();  //上一首
-    void on_nextBtn_clicked();             //下一首
+    void playNext();             //下一首
 //    void on_playlist_nextBtn_clicked();  //下一首
     void positionChange(qint64 position);  //更新播放位置
     void durationChange(qint64 duration);  //更新播放进度
@@ -236,6 +241,8 @@ public slots:
 
     void showBeforeList();  //显示历史播放列表
     void show_volumeBtn();  //音量显示
+    void increaseVolume();   //音量调高
+    void reduceVolume();     //音量调低
     void changeVolume(int values);
     void addvSlider_slot();
     void subvSlider_slot();
@@ -266,7 +273,7 @@ protected:
 
 private:
     //主界面构造初始化函数
-    void Single(QString path);//单例
+    void Single(QStringList path);//单例
     void initStyle();//初始化样式
     void initControlse();//初始化控件
     void initDbus();//初始化dbus
@@ -355,5 +362,7 @@ private:
 //    bool pauseFromPrepareForSleep = false;//因为系统休眠而暂停
 //    int timeFromPrepareForSleep = 0;//因为系统休眠而暂停时的时间
     bool isFirstObject = false;//判断是否是唯一的对象
+
+    void deleteAllItem();
 };
 #endif // MAINWID_H

@@ -87,7 +87,7 @@ void PlaySongArea::playcolor(bool isplay)
 
         coverPhotoLabel->setStyleSheet("background:transparent;border-image:url(:/img/fengmian.png);");
 
-        songNameofNowPlaying->setStyleSheet("width:56px;height:14px;font-size:14px;color:#F9F9F9;line-height:14px;");
+        songNameofNowPlaying->setStyleSheet("width:56px;height:14px;color:#F9F9F9;line-height:14px;");
     }
     else if (WidgetStyle::themeColor == 0)
     {
@@ -141,7 +141,7 @@ void PlaySongArea::playcolor(bool isplay)
 
         coverPhotoLabel->setStyleSheet("background:transparent;border-image:url(:/img/fengmian.png);");
 
-        songNameofNowPlaying->setStyleSheet("width:56px;height:14px;font-size:14px;color:#303133;line-height:14px;");
+        songNameofNowPlaying->setStyleSheet("width:56px;height:14px;color:#303133;line-height:14px;");
 
     }
 }
@@ -234,7 +234,7 @@ void PlaySongArea::initWidget()
 
     bottomLeftLabel = new QLabel(this);
     bottomLeftLabel->setFixedHeight(18);
-    bottomLeftLabel->setStyleSheet("font-size:13px;color:#8F9399;");
+    bottomLeftLabel->setStyleSheet("color:#8F9399;");
     bottomLeftLabel->setAttribute(Qt::WA_TranslucentBackground);
 
     coverPhotoLabel = new QLabel(this);

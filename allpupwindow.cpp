@@ -140,7 +140,7 @@ void AllPupWindow::dlgcolor()
                                   "QPushButton::pressed{background:#296CD9;}"
                                   );
 
-        titleLab->setStyleSheet("width:80px;height:14px;font-size: 14px;\
+        titleLab->setStyleSheet("width:80px;height:14px;\
                                 font-weight: 600;\
                                 border:none;\
                                 color: #F9F9F9;\
@@ -160,7 +160,7 @@ void AllPupWindow::dlgcolor()
                                   "QPushButton::pressed{background:#296CD9;}"
                                   );
 
-        titleLab->setStyleSheet("width:80px;height:14px;font-size: 14px;\
+        titleLab->setStyleSheet("width:80px;height:14px;\
                                 font-weight: 600;\
                                 border:none;\
                                 color: #1B1B1B;\
@@ -379,37 +379,37 @@ void SongInfoWidget::songInfoDlgColor()
     {
         songInfoCancelBtn->setStyleSheet("border-radius:4px;border:1px solid #DDDFE7;color:#606265;");
 
-        titleLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        titleLab->setStyleSheet("width:60px;height:14px;\
                                  font-weight:400;\
                                  border:none;\
                                  color: #F9F9F9;\
                                  line-height:14px;");
-        artistLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        artistLab->setStyleSheet("width:60px;height:14px;\
                                   font-weight:400;\
                                   border:none;\
                                   color: #F9F9F9;\
                                   line-height:14px;");
-        albumLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        albumLab->setStyleSheet("width:60px;height:14px;\
                                  font-weight:400;\
                                  border:none;\
                                  color: #F9F9F9;\
                                  line-height:14px;");
-        typeLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        typeLab->setStyleSheet("width:60px;height:14px;\
                                 font-weight:400;\
                                 border:none;\
                                 color: #F9F9F9;\
                                 line-height:14px;");
-        sizeLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        sizeLab->setStyleSheet("width:60px;height:14px;\
                                 font-weight:400;\
                                 border:none;\
                                 color: #F9F9F9;\
                                 line-height:14px;");
-        timeLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        timeLab->setStyleSheet("width:60px;height:14px;\
                                 font-weight:400;\
                                 border:none;\
                                 color: #F9F9F9;\
                                 line-height:14px;");
-        pathLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        pathLab->setStyleSheet("width:60px;height:14px;\
                                 font-weight:400;\
                                 border:none;\
                                 color: #F9F9F9;\
@@ -419,61 +419,58 @@ void SongInfoWidget::songInfoDlgColor()
 //                                      border:none;\
 //                                      font-weight:400;\
 //                                      line-height:14px;\
-//                                      font-size:14px;\
 //                                      color:#F9F9F9;");
 //        singerNameEdit->setStyleSheet("width:326px;height:16px;\
 //                                      border:none;\
 //                                      font-weight:400;\
 //                                      line-height:14px;\
-//                                      font-size:14px;\
 //                                      color:#F9F9F9;");
 //        albumNameEdit->setStyleSheet("width:326px;height:16px;\
 //                                      border:none;\
 //                                      font-weight:400;\
 //                                      line-height:14px;\
-//                                      font-size:14px;\
 //                                      color:#F9F9F9;");
         musicNameLab->setStyleSheet("width:326px;height:14px;\
                                     border:none;\
                                     font-weight:400;\
                                     line-height:14px;\
-                                    font-size:14px;\
+                                    \
                                     color:#F9F9F9;");
         singerNameLab->setStyleSheet("width:326px;height:14px;\
                                      border:none;\
                                      font-weight:400;\
                                      line-height:14px;\
-                                     font-size:14px;\
+                                     \
                                      color:#F9F9F9;");
         albumNameLab->setStyleSheet("width:326px;height:14px;\
                                      border:none;\
                                      font-weight:400;\
                                      line-height:14px;\
-                                     font-size:14px;\
+                                     \
                                      color:#F9F9F9;");
         fileTypeLab->setStyleSheet("width:326px;height:14px;\
                                    border:none;\
                                    font-weight:400;\
                                    line-height:14px;\
-                                   font-size:14px;\
+                                   \
                                    color:#F9F9F9;");
         fileSizeLab->setStyleSheet("width:326px;height:14px;\
                                    border:none;\
                                    font-weight:400;\
                                    line-height:14px;\
-                                   font-size:14px;\
+                                   \
                                    color:#F9F9F9;");
         fileTimeLab->setStyleSheet("width:326px;height:14px;\
                                    border:none;\
                                    font-weight:400;\
                                    line-height:14px;\
-                                   font-size:14px;\
+                                   \
                                    color:#F9F9F9;");
         filePathLab->setStyleSheet("width:326px;height:14px;\
                                    border:none;\
                                    font-weight:400;\
                                    line-height:14px;\
-                                   font-size:14px;\
+                                   \
                                    color:#F9F9F9;");
 
         songInfoDlg->setStyleSheet("background-color:#3D3D41;");
@@ -484,7 +481,7 @@ void SongInfoWidget::songInfoDlgColor()
                                           );
 
 
-        songInfoTitleLab->setStyleSheet("width:80px;height:14px;font-size: 14px;\
+        songInfoTitleLab->setStyleSheet("width:80px;height:14px;\
                                          font-weight: 600;\
                                          border:none;\
                                          color:#F9F9F9;\
@@ -500,37 +497,37 @@ void SongInfoWidget::songInfoDlgColor()
     {
         songInfoCancelBtn->setStyleSheet("border-radius:4px;border:1px solid #DDDFE7;color:#8F9399;");
 
-        titleLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        titleLab->setStyleSheet("width:60px;height:14px;\
                                  font-weight:400;\
                                  border:none;\
                                  color: #606265;\
                                  line-height:14px;");
-        artistLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        artistLab->setStyleSheet("width:60px;height:14px;\
                                   font-weight:400;\
                                   border:none;\
                                   color: #606265;\
                                   line-height:14px;");
-        albumLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        albumLab->setStyleSheet("width:60px;height:14px;\
                                  font-weight:400;\
                                  border:none;\
                                  color: #606265;\
                                  line-height:14px;");
-        typeLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        typeLab->setStyleSheet("width:60px;height:14px;\
                                 font-weight:400;\
                                 border:none;\
                                 color: #606265;\
                                 line-height:14px;");
-        sizeLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        sizeLab->setStyleSheet("width:60px;height:14px;\
                                 font-weight:400;\
                                 border:none;\
                                 color: #606265;\
                                 line-height:14px;");
-        timeLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        timeLab->setStyleSheet("width:60px;height:14px;\
                                 font-weight:400;\
                                 border:none;\
                                 color: #606265;\
                                 line-height:14px;");
-        pathLab->setStyleSheet("width:60px;height:14px;font-size:14px;\
+        pathLab->setStyleSheet("width:60px;height:14px;\
                                 font-weight:400;\
                                 border:none;\
                                 color: #606265;\
@@ -540,61 +537,51 @@ void SongInfoWidget::songInfoDlgColor()
 //                                      border:none;\
 //                                      font-weight:400;\
 //                                      line-height:14px;\
-//                                      font-size:14px;\
 //                                      color:#606265;");
 //        singerNameEdit->setStyleSheet("width:326px;height:16px;\
 //                                      border:none;\
 //                                      font-weight:400;\
 //                                      line-height:14px;\
-//                                      font-size:14px;\
 //                                      color:#606265;");
 //        albumNameEdit->setStyleSheet("width:326px;height:16px;\
 //                                      border:none;\
 //                                      font-weight:400;\
 //                                      line-height:14px;\
-//                                      font-size:14px;\
 //                                      color:#606265;");
         musicNameLab->setStyleSheet("width:326px;height:14px;\
                                     border:none;\
                                     font-weight:400;\
                                     line-height:14px;\
-                                    font-size:14px;\
                                     color:#606265;");
         singerNameLab->setStyleSheet("width:326px;height:14px;\
                                      border:none;\
                                      font-weight:400;\
                                      line-height:14px;\
-                                     font-size:14px;\
                                      color:#606265;");
         albumNameLab->setStyleSheet("width:326px;height:14px;\
                                      border:none;\
                                      font-weight:400;\
                                      line-height:14px;\
-                                     font-size:14px;\
                                      color:#606265;");
         fileTypeLab->setStyleSheet("width:326px;height:14px;\
                                    border:none;\
                                    font-weight:400;\
                                    line-height:14px;\
-                                   font-size:14px;\
                                    color:#606265;");
         fileSizeLab->setStyleSheet("width:326px;height:14px;\
                                    border:none;\
                                    font-weight:400;\
                                    line-height:14px;\
-                                   font-size:14px;\
                                    color:#606265;");
         fileTimeLab->setStyleSheet("width:326px;height:14px;\
                                    border:none;\
                                    font-weight:400;\
                                    line-height:14px;\
-                                   font-size:14px;\
                                    color:#606265;");
         filePathLab->setStyleSheet("width:326px;height:14px;\
                                    border:none;\
                                    font-weight:400;\
                                    line-height:14px;\
-                                   font-size:14px;\
                                    color:#606265;");
         songInfoDlg->setStyleSheet("background-color:#FFFFFF;");
 //                                   "border-radius:6px;");
@@ -603,7 +590,7 @@ void SongInfoWidget::songInfoDlgColor()
                                           "QPushButton::pressed{background:#296CD9;}"
                                           );
 
-        songInfoTitleLab->setStyleSheet("width:80px;height:14px;font-size: 14px;\
+        songInfoTitleLab->setStyleSheet("width:80px;height:14px;\
                                          font-weight: 600;\
                                          border:none;\
                                          color:#1B1B1B;\

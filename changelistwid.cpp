@@ -43,13 +43,13 @@ void ChangeListWid::initStack()
     QVBoxLayout *vAddFolderLayout = new QVBoxLayout(this);
 
     songListLabel = new QLabel(this);
-    songListLabel->setGeometry(30,18,100,30);
+    songListLabel->setGeometry(30,18,104,30);
 //    songListLabel->setText("歌曲列表");
     songListLabel->setText(tr("Song list"));
 
 
     songNumberLabel = new QLabel(this);
-    songNumberLabel->setGeometry(142,28,40,18);
+    songNumberLabel->setGeometry(142,28,184,18);
 //    songNumberLabel->setText("共0首");
     songNumberLabel->setText(tr("A total of 0 first"));
 
@@ -58,7 +58,7 @@ void ChangeListWid::initStack()
     nullMusicIconLabel->setStyleSheet("border-image:url(:/img/default/pict1.png)");
 
     nullMusicLabel = new QLabel(this);
-    nullMusicLabel->setFixedSize(84,24);
+//    nullMusicLabel->setFixedSize(84,24);
 //    nullMusicLabel->setText("还没有歌曲！");
     nullMusicLabel->setText(tr("There are no songs yet!"));
 
@@ -104,66 +104,62 @@ void ChangeListWid::nullWidgetColor()
     if(WidgetStyle::themeColor == 1)
     {
         songListLabel->setStyleSheet("width:96px;height:24px;"
-                                     "font-size: 24px;\
-                                      \
+                                     "font-size:24px;\
                                      font-weight: 600;\
                                      color:rgba(249,249,249,1);\
                                      line-height: 24px;");
 
-        songNumberLabel->setStyleSheet("font-size: 14px;\
-                                         \
+        songNumberLabel->setStyleSheet("\
                                         font-weight: 400;\
                                         border:none;\
                                         color: #8F9399;\
                                         line-height: 14px;");
 
-        nullMusicLabel->setStyleSheet("font-size: 14px;\
+        nullMusicLabel->setStyleSheet("\
                                        \
                                       font-weight: 400;\
                                       border:none;\
                                       color: rgba(143, 147, 153, 1);\
                                       line-height:24px;");
 
-        n_addLocalSong->setStyleSheet("QPushButton{font-size:14px;color:rgba(249, 249, 249, 1);border-radius:15px;border:2px solid #DDDFE7;"
+        n_addLocalSong->setStyleSheet("QPushButton{color:rgba(249, 249, 249, 1);border-radius:15px;border:2px solid #DDDFE7;"
                                       "font-weight: 400;width:84px;height:14px;}"
                                       "QPushButton::hover{color:#8F9399;}"
                                       "QPushButton::pressed{background:#ECEEF5;}");
 
-        n_addLocalFolder->setStyleSheet("font-size:14px;color:rgba(249, 249, 249, 1);border-radius:15px;border:2px solid #DDDFE7;"
+        n_addLocalFolder->setStyleSheet("color:rgba(249, 249, 249, 1);border-radius:15px;border:2px solid #DDDFE7;"
                                         " \
                                         font-weight: 400;width:84px;height:14px;");
     }
     else if(WidgetStyle::themeColor == 0)
     {
         songListLabel->setStyleSheet("width:96px;height:24px;"
-                                     "font-size: 24px;\
+                                     "font-size:24px;\
                                       \
                                      font-weight: 600;\
                                      border:none;\
                                      color: #303133;\
                                      line-height: 24px;");
 
-        songNumberLabel->setStyleSheet("font-size: 14px;\
-                                        \
+        songNumberLabel->setStyleSheet("\
                                        font-weight: 400;\
                                        border:none;\
                                        color: #8F9399;\
                                        line-height: 14px;");
 
-        nullMusicLabel->setStyleSheet("font-size: 14px;\
-                                       \
+        nullMusicLabel->setStyleSheet("\
                                       font-weight: 400;\
                                       border:none;\
                                       color: #000000;\
                                       line-height:24px;");
 
-        n_addLocalSong->setStyleSheet("QPushButton{font-size:14px;color:#303133;border-radius:15px;border:2px solid #DDDFE7;"
+        n_addLocalSong->setStyleSheet("QPushButton{color:#303133;border-radius:15px;border:2px solid #DDDFE7;"
                                       "font-weight: 400;width:84px;height:14px;}"
                                       "QPushButton::hover{color:#8F9399;}"
                                       "QPushButton::pressed{background:#ECEEF5;}"
                                       );
 
-        n_addLocalFolder->setStyleSheet("font-size:14px;color:#303133;border-radius:15px;border:2px solid #DDDFE7;"
+        n_addLocalFolder->setStyleSheet("color:#303133;border-radius:15px;border:2px solid #DDDFE7;"
                                         "font-weight: 400;width:84px;height:14px;");
     }
 
@@ -213,7 +209,7 @@ void MusicListWid::initMusicListWid()
 //    top_playAllSongBtn->setText("播放全部");
 //    top_playAllSongBtn->setText(tr("Play all"));
 //    top_playAllSongBtn->setFixedSize(100,30);
-//    top_playAllSongBtn->setStyleSheet("font-size: 14px;line-height: 14px;font-weight: 400;\
+//    top_playAllSongBtn->setStyleSheet("line-height: 14px;font-weight: 400;\
 //                                        \
 //                                       background:#FF4848;padding-left:10px;\
 //                                       color:#FFFFFF;border-radius:15px;");
@@ -387,11 +383,11 @@ QStringList MusicListWid::fileInformation(QString filepath)
 {
     QByteArray byteArray = filepath.toLocal8Bit();
     TagLib::FileRef f(byteArray.data());
-//    if(f.isNull())
-//    {
-//        //can't read this music;
-//        continue;
-//    }
+    if(f.isNull())
+    {
+//        can't read this music;
+        return songFiles;
+    }
     TagLib::PropertyMap propertyMap = f.file() ->properties();
 
     QString musicName = propertyMap["TITLE"].toString().toCString(true);
@@ -536,38 +532,38 @@ void MusicListWid::musiclistcolor()
 
 //        songLabel->setText("歌曲");
         songLabel->setText(tr("song"));
-        songLabel->setStyleSheet("width:32px;height:16px;font-size:14px; "
+        songLabel->setStyleSheet("width:32px;height:16px; "
                                      "font-weight:400;color:#8F9399;line-height:14px;");
 
 //        singerLabel->setText("歌手");
         singerLabel->setText(tr("singer"));
-        singerLabel->setStyleSheet("width:32px;height:16px;font-size:14px; "
+        singerLabel->setStyleSheet("width:32px;height:16px; "
                                      "font-weight:400;color:#8F9399;line-height:14px;");
 
 //        albumLabel->setText("专辑");
-        albumLabel->setText(tr("The album"));
-        albumLabel->setStyleSheet("width:32px;height:16px;font-size:14px; "
+        albumLabel->setText(tr("album"));
+        albumLabel->setStyleSheet("width:32px;height:16px; "
                                      "font-weight:400;color:#8F9399;line-height:14px;");
 
 //        timeLabel->setText("时长");
-        timeLabel->setText(tr("The length"));
-        timeLabel->setStyleSheet("width:32px;height:16px;font-size:14px; "
+        timeLabel->setText(tr("length"));
+        timeLabel->setStyleSheet("width:32px;height:16px; "
                                      "font-weight:400;color:#8F9399;line-height:14px;");
 
-        top_addSongBtn->setStyleSheet("QToolButton{font-size: 14px;line-height: 14px;font-weight: 400;\
+        top_addSongBtn->setStyleSheet("QToolButton{line-height: 14px;font-weight: 400;\
                                        background:#393A3B;padding-left:10px;\
                                        color:#F9F9F9;border-radius:15px;}"
                                        "QToolButton::hover{color:#8F9399;}"
                                        "QToolButton::pressed{background:#ECEEF5;}");
 
-        songNumberLabel->setStyleSheet("font-size: 14px;margin-top:12px;\
+        songNumberLabel->setStyleSheet("margin-top:12px;\
                                        font-weight: 400;\
                                        border:none;\
                                        color: #8F9399;\
                                        line-height: 14px;");
 
         songListLabel->setStyleSheet("width:96px;height:24px;"
-                                      "font-size: 24px;\
+                                      "font-size:24px;\
                                       font-weight: 600;\
                                       border:none;\
                                       color: #F9F9F9;\
@@ -587,38 +583,38 @@ void MusicListWid::musiclistcolor()
 
 //        songLabel->setText("歌曲");
         songLabel->setText(tr("song"));
-        songLabel->setStyleSheet("width:32px;height:16px;font-size:14px; "
+        songLabel->setStyleSheet("width:32px;height:16px; "
                                      "font-weight:400;color:#8F9399;line-height:14px;");
 
 //        singerLabel->setText("歌手");
         singerLabel->setText(tr("singer"));
-        singerLabel->setStyleSheet("width:32px;height:16px;font-size:14px; "
+        singerLabel->setStyleSheet("width:32px;height:16px; "
                                      "font-weight:400;color:#8F9399;line-height:14px;");
 
 //        albumLabel->setText("专辑");
-        albumLabel->setText(tr("The album"));
-        albumLabel->setStyleSheet("width:32px;height:16px;font-size:14px; "
+        albumLabel->setText(tr("album"));
+        albumLabel->setStyleSheet("width:32px;height:16px; "
                                      "font-weight:400;color:#8F9399;line-height:14px;");
 
 //        timeLabel->setText("时长");
-        timeLabel->setText(tr("The length"));
-        timeLabel->setStyleSheet("width:32px;height:16px;font-size:14px; "
+        timeLabel->setText(tr("length"));
+        timeLabel->setStyleSheet("width:32px;height:16px; "
                                      "font-weight:400;color:#8F9399;line-height:14px;");
 
-        top_addSongBtn->setStyleSheet("QToolButton{font-size: 14px;line-height: 14px;font-weight: 400;\
+        top_addSongBtn->setStyleSheet("QToolButton{line-height: 14px;font-weight: 400;\
                                        background:#F2F6FD;padding-left:10px;\
                                        color:#303133;border-radius:15px;}"
                                        "QToolButton::hover{color:#8F9399;}"
                                        "QToolButton::pressed{background:#ECEEF5;}");
 
-        songNumberLabel->setStyleSheet("font-size: 14px;margin-top:12px;\
+        songNumberLabel->setStyleSheet("margin-top:12px;\
                                        font-weight: 400;\
                                        border:none;\
                                        color: #8F9399;\
                                        line-height: 14px;");
 
         songListLabel->setStyleSheet("width:96px;height:24px;"
-                                      "font-size: 24px;\
+                                      "font-size:24px;\
                                       font-weight: 600;\
                                       border:none;\
                                       color: #303133;\
