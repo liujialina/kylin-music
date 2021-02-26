@@ -43,7 +43,6 @@ void BeforePlayList::initUi()
     beforeListTitleLabel->setFixedHeight(30);
     beforeListTitleLabel->setStyleSheet("width: 72px;margin-top:2px;\
                                         height: 18px;\
-                                        font-size: 18px;\
                                         font-weight: 600;\
                                         color: #303133;\
                                         line-height: 18px;\  ");
@@ -52,7 +51,6 @@ void BeforePlayList::initUi()
     beforeListNumberLabel = new QLabel(this);
     beforeListNumberLabel->setStyleSheet("width: 37px;margin-top:10px;\
                                          height: 14px;\
-                                         font-size: 14px;\
                                          font-weight: 400;\
                                          color: #8F9399;\
                                          line-height: 14px;\
@@ -66,7 +64,7 @@ void BeforePlayList::initUi()
     emptyBtn->setIconSize(QSize(16,16));
 //    emptyBtn->setText("清空");
     emptyBtn->setText(tr("empty"));
-    emptyBtn->setStyleSheet("QToolButton{font-size: 14px;margin-top:6px;\
+    emptyBtn->setStyleSheet("QToolButton{margin-top:6px;\
                             font-weight: 400;\
                             color: #8F9399;\
                             line-height: 14px;}"

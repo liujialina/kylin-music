@@ -40,7 +40,7 @@ void MyToolButton::defaultStyle()
     if(this->statusTip() == IS_SELECT)
     {
         this->setIcon(QIcon(":/img/default/songlist_w .png"));
-        this->setStyleSheet("background-color:qlineargradient(x1:0, y1:0, x2:1, y2:0,stop:0 #40A9FB,stop:1 #3790FA);border-radius:16px;color:#FFFFFF;padding-left:15px;margin-left:10px;font-size: 14px");
+        this->setStyleSheet("background-color:qlineargradient(x1:0, y1:0, x2:1, y2:0,stop:0 #40A9FB,stop:1 #3790FA);border-radius:16px;color:#FFFFFF;padding-left:15px;margin-left:10px;");
         return;
     }
     else if(this->statusTip() != IS_SELECT)
@@ -49,14 +49,14 @@ void MyToolButton::defaultStyle()
         {
             this->setIcon(QIcon(":/img/default/songlist.png"));
             this->setStyleSheet("QToolButton{padding-left:15px;margin-left:10px;\
-                                font-size: 14px;background-color:#FAFAFA;color:#303133;border-radius:16px;}"
+                                background-color:#FAFAFA;color:#303133;border-radius:16px;}"
                                 "QToolButton::hover{background-color:#EEEEEE;border-radius:16px;}");
         }
 
         else if(WidgetStyle::themeColor == 1)
         {
             this->setIcon(QIcon(":/img/default/songlist_w .png"));
-            this->setStyleSheet("QToolButton{padding-left:15px;margin-left:10px;font-size: 14px;background-color:#1F2022;;color:#F9F9F9;border-radius:16px;}"
+            this->setStyleSheet("QToolButton{padding-left:15px;margin-left:10px;background-color:#1F2022;;color:#F9F9F9;border-radius:16px;}"
                                 "QToolButton::hover{background-color:#303032;border-radius:16px;}");
         }
 

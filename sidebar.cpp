@@ -49,12 +49,11 @@ void SideBar::sidecolor()
 
         logoNameLabel->setStyleSheet("width: 56px;\
                                      height: 20px;\
-                                     font-size: 14px;\
                                      font-family: PingFangSC-Medium, PingFang SC;\
                                      font-weight: 500;\
                                      color: #F9F9F9;\
                                      line-height: 20px;");
-        recommendLabel->setStyleSheet("font-size: 14px;margin-left:26px;\
+        recommendLabel->setStyleSheet("margin-left:26px;\
                                        \
                                       font-weight: 400;\
                                       border:none;\
@@ -63,7 +62,7 @@ void SideBar::sidecolor()
                                         );
 
 
-        MySongListLabel->setStyleSheet("font-size: 14px;margin-left:26px;\
+        MySongListLabel->setStyleSheet("margin-left:26px;\
                                 \
                                color: #8F9399;\
                                line-height: 14px;");
@@ -92,13 +91,12 @@ void SideBar::sidecolor()
         logoLabel->setStyleSheet("border-image:url(:/img/kylin-music-logo.png);");
         logoNameLabel->setStyleSheet("width: 56px;\
                                      height: 20px;\
-                                     font-size: 14px;\
                                      font-family: PingFangSC-Medium, PingFang SC;\
                                      font-weight: 500;\
                                      color: #303133;\
                                      line-height: 20px;");
 
-        recommendLabel->setStyleSheet("font-size: 14px;margin-left:26px;\
+        recommendLabel->setStyleSheet("margin-left:26px;\
                                        \
                                       font-weight: 400;\
                                       border:none;\
@@ -106,7 +104,7 @@ void SideBar::sidecolor()
                                       line-height: 14px;"
                                         );
 
-        MySongListLabel->setStyleSheet("font-size: 14px;margin-left:26px;\
+        MySongListLabel->setStyleSheet("margin-left:26px;\
                                 \
                                color: #8F9399;\
                                line-height: 14px;");
