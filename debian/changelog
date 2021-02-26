@@ -1,3 +1,39 @@
+kylin-music (1.0.54kord~rc3) v101; urgency=medium
+
+  * 解决禅道BUG#37901 打开麒麟音乐，添加几首歌曲，都设置为我的喜欢，之后重新打开软件，双击播放第一首歌曲，我喜欢的心形按钮未点亮.
+
+ -- liujialin <liujialin@kylinos.cn>  Fri, 26 Feb 2021 16:09:11 +0800
+
+kylin-music (1.0.54kord~rc2) v101; urgency=medium
+
+  * 去掉字体样式.
+
+ -- liujialin <liujialin@kylinos.cn>  Thu, 25 Feb 2021 20:56:24 +0800
+
+kylin-music (1.0.54kord~rc1) v101; urgency=medium
+
+  * 解决禅道BUG#38740 当播放列表为空时，添加歌曲后，顺序点击播放面板控制区的播放和下一首按钮，麒麟音乐闪退.
+
+ -- liujialin <liujialin@kylinos.cn>  Wed, 24 Feb 2021 11:51:02 +0800
+
+kylin-music (1.0.53kord) v101; urgency=medium
+
+  * 增加终端命令音量、播放模式、窗口位置和退出.
+
+ -- liujialin <liujialin@kylinos.cn>  Wed, 24 Feb 2021 10:00:42 +0800
+
+kylin-music (1.0.52kord~rc6) v101; urgency=medium
+
+  * 优化音量进度条和逻辑.
+
+ -- liujialin <liujialin@kylinos.cn>  Mon, 22 Feb 2021 15:58:34 +0800
+
+kylin-music (1.0.52kord~rc5) v101; urgency=medium
+
+  * 增加一些label汉化样式.
+
+ -- liujialin <liujialin@kylinos.cn>  Sun, 07 Feb 2021 15:06:10 +0800
+
 kylin-music (1.0.52kord~rc4) v101; urgency=medium
 
   * 解决禅道BUG#24621 删除本地歌曲后，再次点击歌曲应用闪退.
