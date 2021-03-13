@@ -66,6 +66,7 @@
 
 #include "widgetstyle.h"
 #include "musicDataBase.h"
+#include "mytoolbutton.h"
 
 class ChangeListWid : public QWidget
 {
@@ -108,7 +109,7 @@ public:
 
     QLabel *songNumberLabel;
 
-    QLabel *songListLabel;
+    MyLabel *songListLabel;
     QToolButton *top_addSongBtn;  //播放列表界面的添加歌曲按钮
 //    QToolButton *top_playAllSongBtn;  //播放界面的播放全部按钮
 

@@ -187,7 +187,7 @@ void MusicListWid::initMusicListWid()
     vMainLayout = new QVBoxLayout(this);
     vListWidLayout = new QVBoxLayout(this);
 
-    songListLabel = new QLabel(this);
+    songListLabel = new MyLabel(this);
 //    songListLabel->setGeometry(30,18,100,30);
 //    songListLabel->setText("歌曲列表");
     songListLabel->setText(tr("Song list"));

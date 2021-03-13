@@ -52,7 +52,6 @@ public:
 private:
     void initAction();
 
-
 public slots:
 
 public:
@@ -74,7 +73,6 @@ public:
     QLabel *m_timeLab;
 
     void minicolor();
-
 
     QMenu *playModeMenu;
     QAction *playMode_Sequential_Action;
@@ -98,11 +96,8 @@ private:
 
     QHBoxLayout *m_HMainLayout;
 
-
     QVBoxLayout *m_vInfoLayout;
     QVBoxLayout *m_vSysLayout;
-
-
 };
 
 #pragma pack(pop)

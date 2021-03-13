@@ -53,6 +53,7 @@ void SideBar::sidecolor()
                                      font-weight: 500;\
                                      color: #F9F9F9;\
                                      line-height: 20px;");
+
         recommendLabel->setStyleSheet("margin-left:26px;\
                                        \
                                       font-weight: 400;\
@@ -61,20 +62,16 @@ void SideBar::sidecolor()
                                       line-height: 14px;"
                                         );
 
-
         MySongListLabel->setStyleSheet("margin-left:26px;\
                                 \
                                color: #8F9399;\
                                line-height: 14px;");
 
-//        addSongListBtn->setStyleSheet("border-radius:4px;}"
-//                                      "QPushButton::hover{color:#8F9399;}"
-//                                      "QPushButton::pressed{color:#606265;}");
-
         songListWidget->setStyleSheet("QListWidget{background-color:#1F2022;border:0px;}"
                                       "QListWidget::item:selected{background-color:#1F2022;}"
                                       "QListWidget::item:hover{background-color:#1F2022;}"
                                       "QListWidget::item:pressed{background-color:#1F2022;}");
+
         songListWidget->setContentsMargins(20,20,20,20);
     }
     else if(WidgetStyle::themeColor == 0)
@@ -108,9 +105,6 @@ void SideBar::sidecolor()
                                 \
                                color: #8F9399;\
                                line-height: 14px;");
-//        addSongListBtn->setStyleSheet("border-radius:4px;}"
-//                                      "QPushButton::hover{color:#8F9399;}"
-//                                      "QPushButton::pressed{color:#606265;}");
 
         songListWidget->setStyleSheet("QListWidget{background-color:#FAFAFA;border:0px;}"
                                       "QListWidget::item:selected{background-color:#FAFAFA;}"
@@ -157,11 +151,8 @@ void SideBar::initTopWidget()
 //    MySongListLabel->setText("我的歌单");
     MySongListLabel->setText(tr("My song list"));
 
-
-//    addSongListBtn->setGeometry(100,161,16,16);
     addSongListBtn->setFixedSize(20,20);
     addSongListBtn->setIcon(QIcon::fromTheme("list-add-symbolic"));
-//    addSongListBtn->setIcon(QIcon(":/img/default/add.png"));
     addSongListBtn->setProperty("isWindowButton", 0x1);
     addSongListBtn->setProperty("useIconHighlightEffect", 0x2);
     addSongListBtn->setFlat(true);
@@ -169,8 +160,6 @@ void SideBar::initTopWidget()
     addSongListLayout->addWidget(MySongListLabel);
     addSongListLayout->addWidget(addSongListBtn);
     addSongListLayout->addSpacing(20);
-
-//    addSongListBtn->hide();   //添加歌单按钮隐藏
 
     songListWidget = new QListWidget(this);
 //    songListWidget->setFrameShape(QListWidget::NoFrame);
@@ -723,27 +712,27 @@ void SideBar::createSongList()
         musicListChangeWid[i]->get_localmusic_information(listName);
         musicListChangeWid[i]->songNumberLabel->setText(tr("A total of")+QString::number(musicListChangeWid[i]->musicInfoWidget->count())+tr("The first"));
 
-        QString listNameLab = "";
-        if(listName.length() > 9)
-        {
-            listNameLab = listName.mid(0,8);
-            listNameLab.append("...");
-            musicListChangeWid[i]->songListLabel->setText(listNameLab);
-            musicListChangeWid[i]->songListLabel->setToolTip(listName);
-        }
-        else
-        {
-            if(listName == "我喜欢")
-            {
-                qDebug()<<"listName"<<listName;
-                musicListChangeWid[i]->songListLabel->setText(tr("I like"));
-                qDebug()<<musicListChangeWid[i]->songListLabel->text();
-            }
-            else
-            {
-                musicListChangeWid[i]->songListLabel->setText(listName);
-            }
-        }
+//        QString listNameLab = "";
+//        if(listName.length() > 9)
+//        {
+//            listNameLab = listName.mid(0,8);
+//            listNameLab.append("...");
+//            musicListChangeWid[i]->songListLabel->setText(listNameLab);
+////            musicListChangeWid[i]->songListLabel->setToolTip(listName);
+//        }
+//        else
+//        {
+//            if(listName == "我喜欢")
+//            {
+//                qDebug()<<"listName"<<listName;
+//                musicListChangeWid[i]->songListLabel->setText(tr("I like"));
+//                qDebug()<<musicListChangeWid[i]->songListLabel->text();
+//            }
+//            else
+//            {
+//                musicListChangeWid[i]->songListLabel->setText(listName);
+//            }
+//        }
 
         rightChangeWid->addWidget(musicListChangeWid[i]);
 
@@ -841,18 +830,18 @@ void SideBar::addItemToSongList()
     musicListChangeWid[num]->songListLabel->setText(listName);
 //    musicListChangeWid[num]->tableName = listName;
     musicListChangeWid[num]->musicInfoWidget->clear();
-    QString listNameLab = "";
-    if(listName.length() > 9)
-    {
-        listNameLab = listName.mid(0,8);
-        listNameLab.append("...");
-        musicListChangeWid[num]->songListLabel->setText(listNameLab);
-        musicListChangeWid[num]->songListLabel->setToolTip(listName);
-    }
-    else
-    {
-        musicListChangeWid[num]->songListLabel->setText(listName);
-    }
+//    QString listNameLab = "";
+//    if(listName.length() > 9)
+//    {
+//        listNameLab = listName.mid(0,8);
+//        listNameLab.append("...");
+//        musicListChangeWid[num]->songListLabel->setText(listNameLab);
+////        musicListChangeWid[num]->songListLabel->setToolTip(listName);
+//    }
+//    else
+//    {
+////        musicListChangeWid[num]->songListLabel->setText(listName);
+//    }
 
     rightChangeWid->addWidget(musicListChangeWid[num]);
     connect(newSongListBtn[num],SIGNAL(clicked(bool)),this,SLOT(AlterPage()));

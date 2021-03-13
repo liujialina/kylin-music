@@ -56,7 +56,7 @@ void MyToolButton::defaultStyle()
         else if(WidgetStyle::themeColor == 1)
         {
             this->setIcon(QIcon(":/img/default/songlist_w .png"));
-            this->setStyleSheet("QToolButton{padding-left:15px;margin-left:10px;background-color:#1F2022;;color:#F9F9F9;border-radius:16px;}"
+            this->setStyleSheet("QToolButton{padding-left:15px;margin-left:10px;background-color:#1F2022;color:#F9F9F9;border-radius:16px;}"
                                 "QToolButton::hover{background-color:#303032;border-radius:16px;}");
         }
 
