@@ -80,22 +80,18 @@ void SongItem::itemcolor(int type)
     {
 
         songNameLabel->setStyleSheet("font-weight: 400;\
-                                     color: #F9F9F9;\
                                      line-height: 14px;");
 
         songTimeLabel->setStyleSheet("width: 35px;\
                                      height: 14px;\
                                      font-weight: 400;\
-                                     color: #F9F9F9;\
                                      line-height: 14px;");
 
         singerLabel->setStyleSheet("font-weight: 400;\
-                                   color: #F9F9F9;\
                                    line-height: 14px;");
 
 
         albumLabel->setStyleSheet("font-weight: 400;\
-                                  color: #F9F9F9;\
                                   line-height: 14px;");
 
         hoverPlay->setStyleSheet("QPushButton{border-image:url(:/img/default/play1.png);width:16px;height:16px;}"
@@ -109,22 +105,18 @@ void SongItem::itemcolor(int type)
     else if(type==0)
     {
         songNameLabel->setStyleSheet("font-weight: 400;\
-                                     color: #303133;\
                                      line-height: 14px;");
 
         songTimeLabel->setStyleSheet("width: 35px;\
                                      height: 14px;\
                                      font-weight: 400;\
-                                     color: #303133;\
                                      line-height: 14px;");
 
         singerLabel->setStyleSheet("font-weight: 400;\
-                                   color: #303133;\
                                    line-height: 14px;");
 
 
         albumLabel->setStyleSheet("font-weight: 400;\
-                                  color: #303133;\
                                   line-height: 14px;");
 
         hoverPlay->setStyleSheet("QPushButton{border-image:url(:/img/default/play1.png);width:16px;height:16px;}"

@@ -261,6 +261,7 @@ public slots:
     void onPlaylistChanged(int index);
     void onPrepareForSleep(bool isSleep);//S3  S4策略
     void onPrepareForShutdown(bool Shutdown);//S3  S4策略
+    void client_get(QString str); //线控
 protected:
     void resizeEvent(QResizeEvent *event);
     void dragEnterEvent(QDragEnterEvent *event);

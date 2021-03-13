@@ -1,3 +1,33 @@
+kylin-music (1.0.54kord~rc7) v101; urgency=medium
+
+  * 增加线控.
+
+ -- liujialin <liujialin@kylinos.cn>  Wed, 10 Mar 2021 16:38:55 +0800
+
+kylin-music (1.0.54kord~rc6) v101; urgency=medium
+
+  * 解决禅道BUG#41918 删除我喜欢或者其他自建歌单的第一首歌。会把高亮显示同时删除.
+  * 解决禅道BUG#41926 在歌曲列表界面双击播放任意歌曲，实际播放的都是当前列表的第一首歌.
+  * 解决禅道BUG#40973 反复切换系统主题再打开麒麟音乐，麒麟音乐主题与系统不一致.
+  * 解决禅道BUG#40666 主题变换后歌单列表不随主题颜色变化.
+  * 解决禅道BUG#40533 在系统主题已设置为深色的前提下，打开的麒麟音乐仍为默认白蓝样式.
+  * 解决禅道BUG#40484 夜间模式下，打开麒麟音乐，页面显示异常.
+  * 解决禅道BUG#40345 麒麟音乐，夜间模式下，播放列表播放状态歌曲没有颜色区分.
+
+ -- liujialin <liujialin@kylinos.cn>  Mon, 08 Mar 2021 13:24:10 +0800
+
+kylin-music (1.0.54kord~rc5) v101; urgency=medium
+
+  * 解决禅道BUG#40268 点击添加歌曲，文件选择不支持wav文件，但直接点击该文件可以使用麒麟音乐播放.
+
+ -- liujialin <liujialin@kylinos.cn>  Thu, 04 Mar 2021 19:00:15 +0800
+
+kylin-music (1.0.54kord~rc4) v101; urgency=medium
+
+  * 更改数据库.
+
+ -- liujialin <liujialin@kylinos.cn>  Mon, 01 Mar 2021 10:00:46 +0800
+
 kylin-music (1.0.54kord~rc3) v101; urgency=medium
 
   * 解决禅道BUG#37901 打开麒麟音乐，添加几首歌曲，都设置为我的喜欢，之后重新打开软件，双击播放第一首歌曲，我喜欢的心形按钮未点亮.
