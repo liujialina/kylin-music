@@ -15,6 +15,7 @@ void menuModule::initAction(){
     titleText = new QLabel();
     bodyAppName = new QLabel();
     bodyAppVersion = new QLabel();
+    bodyAppDescribe = new QLabel();
     bodySupport = new QLabel();
     menuButton = new QToolButton;
     menuButton->setProperty("isWindowButton", 0x1);
@@ -173,23 +174,15 @@ void menuModule::helpAction(){
 }
 
 void menuModule::initAbout(){
+    aboutWindow->setWindowModality(Qt::ApplicationModal);
     aboutWindow->setWindowFlag(Qt::Tool);
-    aboutWindow->setWindowTitle(tr("Kylin music"));
     MotifWmHints hints;
     hints.flags = MWM_HINTS_FUNCTIONS|MWM_HINTS_DECORATIONS;
     hints.functions = MWM_FUNC_ALL;
     hints.decorations = MWM_DECOR_BORDER;
     XAtomHelper::getInstance()->setWindowMotifHint(aboutWindow->winId(), hints);
-    aboutWindow->setWindowModality(Qt::ApplicationModal); //弹出自定义对话框时主界面不可操作
-    aboutWindow->setFixedSize(420,324);
-    aboutWindow->setMinimumHeight(324);
-    QRect availableGeometry = qApp->primaryScreen()->availableGeometry();
-    aboutWindow->move((availableGeometry.width()-aboutWindow->width())/2,(availableGeometry.height()- aboutWindow->height())/2);
-    if(mainlyt){
-        aboutWindow->show();
-        return ;
-    }
-    mainlyt = new QVBoxLayout();
+    aboutWindow->setFixedSize(420,380);
+    QVBoxLayout *mainlyt = new QVBoxLayout();
     QHBoxLayout *titleLyt = initTitleBar();
     QVBoxLayout *bodylyt = initBody();
     mainlyt->setMargin(0);
@@ -198,7 +191,11 @@ void menuModule::initAbout(){
     mainlyt->addStretch();
     aboutWindow->setLayout(mainlyt);
     //TODO:在屏幕中央显示
-
+    QRect availableGeometry = qApp->primaryScreen()->availableGeometry();
+    aboutWindow->move((availableGeometry.width()-aboutWindow->width())/2,(availableGeometry.height()- aboutWindow->height())/2);
+    //弹窗位置应用居中
+//    QRect availableGeometry = this->parentWidget()->geometry();
+//    aboutWindow->move(availableGeometry.center()-aboutWindow->rect().center());
     aboutWindow->show();
 }
 
@@ -206,10 +203,6 @@ QHBoxLayout* menuModule::initTitleBar(){
     QLabel* titleIcon = new QLabel();
     QPushButton *titleBtnClose = new QPushButton;
     titleIcon->setFixedSize(QSize(24,24));
-#if DEBUG_MENUMODULE
-    iconPath = ":/img/kylin-music.png";
-    appShowingName = "kylin music";
-#endif
     //TODO：直接从主题调图标，不会QIcon转qpixmap所以暂时从本地拿
     titleIcon->setPixmap(QPixmap::fromImage(QImage(iconPath)));
 
@@ -237,19 +230,29 @@ QVBoxLayout* menuModule::initBody(){
     QLabel* bodyIcon = new QLabel();
     bodyIcon->setFixedSize(96,96);
     bodyIcon->setPixmap(QPixmap::fromImage(QImage(iconPath)));
+    bodyIcon->setStyleSheet("font-size:14px;");
     bodyIcon->setScaledContents(true);
+    bodyAppDescribe->setText(tr("Kylin music player is a kind of multimedia "
+                                "player software for playing various music files."
+                                "It covers a variety of music formats play tool,"
+                                "easy to operate."));
+    bodyAppDescribe->setFixedWidth(356);
+    bodyAppDescribe->setStyleSheet("font-size:14px;");
+    bodyAppDescribe->setWordWrap(true);
     bodyAppName->setFixedHeight(28);
-//    bodyAppName->setText(tr(appShowingName.toLocal8Bit()));
     bodyAppName->setText(tr("kylin music"));
-    QLabel* bodyAppVersion = new QLabel();
+    bodyAppName->setStyleSheet("font-size:18px;");
     bodyAppVersion->setFixedHeight(24);
     bodyAppVersion->setText(tr("Version: ") + appVersion);
     bodyAppVersion->setAlignment(Qt::AlignLeft);
+    bodyAppVersion->setStyleSheet("font-size:14px;");
+
     connect(bodySupport,&QLabel::linkActivated,this,[=](const QString url){
         QDesktopServices::openUrl(QUrl(url));
     });
     bodySupport->setContextMenuPolicy(Qt::NoContextMenu);
     bodySupport->setFixedHeight(24);
+    bodySupport->setStyleSheet("font-size:14px;");
     QVBoxLayout *vlyt = new QVBoxLayout;
     vlyt->setMargin(0);
     vlyt->setSpacing(0);
@@ -260,6 +263,8 @@ QVBoxLayout* menuModule::initBody(){
     vlyt->addSpacing(12);
     vlyt->addWidget(bodyAppVersion,0,Qt::AlignHCenter);
     vlyt->addSpacing(12);
+    vlyt->addWidget(bodyAppDescribe,0,Qt::AlignHCenter);
+    vlyt->addSpacing(24);
     vlyt->addWidget(bodySupport,0,Qt::AlignHCenter);
     vlyt->addStretch();
     return vlyt;
@@ -293,7 +298,9 @@ void menuModule::refreshThemeBySystemConf(){
 }
 
 void menuModule::setThemeDark(){
-    aboutWindow->setStyleSheet("background-color:rgba(31,32,34，1);");
+    aboutWindow->setStyleSheet(".QWidget{background-color:rgba(61,61,65,1);}");
+    this->setStyleSheet("QLabel{color:rgba(255,255,255,1);}");
+    titleText->setStyleSheet("color:rgba(255,255,255,1);");
     emit menuModuleSetThemeStyle("dark-theme");
     bodySupport->setText(tr("Service & Support: ") +
                          "<a href=\"mailto://support@kylinos.cn\""
@@ -302,7 +309,7 @@ void menuModule::setThemeDark(){
 }
 
 void menuModule::setThemeLight(){
-    aboutWindow->setStyleSheet("background-color:rgba(255，255，255，1);");
+    aboutWindow->setStyleSheet(".QWidget{background-color:rgba(255,255,255,1);}");
     emit menuModuleSetThemeStyle("light-theme");
     bodySupport->setText(tr("Service & Support: ") +
                          "<a href=\"mailto://support@kylinos.cn\""

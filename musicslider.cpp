@@ -15,7 +15,7 @@ void MusicSlider::initStyle()
     this->setFixedHeight(22);
     this->installEventFilter(this);
     this->setOrientation(Qt::Horizontal);
-    this->setStyleSheet("QSlider::groove:horizontal{height: 2px;background:#3790FA;}"
+    this->setStyleSheet("QSlider::groove:horizontal{padding-left:0px;height: 2px;background:#3790FA;}"
                         "QSlider::sub-page:horizontal{left: 10px;right:10px;background:#3790FA;}"
                         "QSlider::add-page:horizontal{background:#ECEEF5;}"
                         "QSlider::handle:horizontal{width: 22px;margin: -10 0 -10 0;}"

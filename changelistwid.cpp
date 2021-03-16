@@ -187,7 +187,8 @@ void MusicListWid::initMusicListWid()
     vMainLayout = new QVBoxLayout(this);
     vListWidLayout = new QVBoxLayout(this);
 
-    songListLabel = new MyLabel(this);
+    songListLabel = new MyLabel(nullptr);
+    songListLabel->setObjectName("SongListLabel");
 //    songListLabel->setGeometry(30,18,100,30);
 //    songListLabel->setText("歌曲列表");
     songListLabel->setText(tr("Song list"));
@@ -565,8 +566,6 @@ void MusicListWid::musiclistcolor()
         songListLabel->setStyleSheet("width:96px;height:24px;"
                                       "font-size:24px;\
                                       font-weight: 600;\
-                                      border:none;\
-                                      color: #F9F9F9;\
                                       line-height: 24px;");
 
     }
@@ -616,8 +615,6 @@ void MusicListWid::musiclistcolor()
         songListLabel->setStyleSheet("width:96px;height:24px;"
                                       "font-size:24px;\
                                       font-weight: 600;\
-                                      border:none;\
-                                      color: #303133;\
                                       line-height: 24px;");
 
     }

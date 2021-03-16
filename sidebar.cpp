@@ -232,11 +232,11 @@ void SideBar::initTopWidget()
 void SideBar::on_musicListChangeWid_customContextMenuRequested(const QPoint &pos)
 {
     int ret;
-    qDebug() << pos ;
-    qDebug() <<  musicListChangeWid[currentPlayList]->musicInfoWidget->x() << " "
-             <<  musicListChangeWid[currentPlayList]->musicInfoWidget->y() << " "
-             <<  musicListChangeWid[currentPlayList]->musicInfoWidget->width() << " "
-             <<  musicListChangeWid[currentPlayList]->musicInfoWidget->height() << " ";
+//    qDebug() << pos ;
+//    qDebug() <<  musicListChangeWid[currentPlayList]->musicInfoWidget->x() << " "
+//             <<  musicListChangeWid[currentPlayList]->musicInfoWidget->y() << " "
+//             <<  musicListChangeWid[currentPlayList]->musicInfoWidget->width() << " "
+//             <<  musicListChangeWid[currentPlayList]->musicInfoWidget->height() << " ";
     if(musicListChangeWid[currentSelectList]->musicInfoWidget->count() <= 0)
         return;
     QPoint tempPoint = pos;
@@ -667,6 +667,7 @@ void SideBar::initDefaultMusicList()
     myMusicListWid->get_localmusic_information("LocalMusic");
     myMusicListWid->Music->setPlaylist(myMusicListWid->PlayList);
     myMusicListWid->musicInfoWidget->setCurrentRow(0);
+    songListWidget->setContextMenuPolicy(Qt::CustomContextMenu);
     myMusicListWid->songNumberLabel->setText(tr("A total of")+QString::number(myMusicListWid->musicInfoWidget->count())+tr("The first"));
 
 }

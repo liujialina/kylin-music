@@ -46,7 +46,7 @@ public:
     QString appName = "kylin-music"; //格式kylin-usb-creator
 //    QString appShowingName = tr("kylin music"); //格式kylin usb creator ,用来在前端展示
     QString appVersion = "1.0.54";
-    QString appDesc = "2020.01.08";
+    QString appDesc = "appDesc字段未填充";
     QString iconPath = ":/img/kylin-music.png";
     QString confPath = "org.kylin-music-data.settings";
 
@@ -81,6 +81,7 @@ private:
     QLabel* titleText = nullptr;
     QLabel* bodyAppName = nullptr;
     QLabel* bodyAppVersion = nullptr;
+    QLabel* bodyAppDescribe = nullptr;
     QLabel* bodySupport = nullptr;
 //    void updateTheme(); //点击菜单中的主题设置后更新一次主题
     QVBoxLayout *mainlyt = nullptr;

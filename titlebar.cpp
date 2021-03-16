@@ -182,7 +182,7 @@ void TitleBar::initTitle()
     miniBtn = new QPushButton;
     miniBtn->setCursor(Qt::PointingHandCursor);
     miniBtn->setFixedSize(30,30);
-//    miniBtn->setToolTip("mini模式");
+//    miniBtn->setToolTip("精简模式");
     miniBtn->setToolTip(tr("mini model"));
     miniBtn->setIcon(QIcon::fromTheme("ukui-mini"));
     miniBtn->setProperty("isWindowButton", 0x1);
