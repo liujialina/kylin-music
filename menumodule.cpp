@@ -230,7 +230,6 @@ QVBoxLayout* menuModule::initBody(){
     QLabel* bodyIcon = new QLabel();
     bodyIcon->setFixedSize(96,96);
     bodyIcon->setPixmap(QPixmap::fromImage(QImage(iconPath)));
-    bodyIcon->setStyleSheet("font-size:14px;");
     bodyIcon->setScaledContents(true);
     bodyAppDescribe->setText(tr("Kylin music player is a kind of multimedia "
                                 "player software for playing various music files."
@@ -241,6 +240,7 @@ QVBoxLayout* menuModule::initBody(){
     bodyAppDescribe->setWordWrap(true);
     bodyAppName->setFixedHeight(28);
     bodyAppName->setText(tr("kylin music"));
+
     bodyAppName->setStyleSheet("font-size:18px;");
     bodyAppVersion->setFixedHeight(24);
     bodyAppVersion->setText(tr("Version: ") + appVersion);
@@ -252,7 +252,6 @@ QVBoxLayout* menuModule::initBody(){
     });
     bodySupport->setContextMenuPolicy(Qt::NoContextMenu);
     bodySupport->setFixedHeight(24);
-    bodySupport->setStyleSheet("font-size:14px;");
     QVBoxLayout *vlyt = new QVBoxLayout;
     vlyt->setMargin(0);
     vlyt->setSpacing(0);

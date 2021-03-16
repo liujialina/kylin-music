@@ -189,6 +189,7 @@ void MusicListWid::initMusicListWid()
 
     songListLabel = new MyLabel(nullptr);
     songListLabel->setObjectName("SongListLabel");
+
 //    songListLabel->setGeometry(30,18,100,30);
 //    songListLabel->setText("歌曲列表");
     songListLabel->setText(tr("Song list"));

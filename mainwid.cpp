@@ -2210,7 +2210,7 @@ void MainWid::on_listWidget_doubleClicked(QListWidgetItem *item)//双击本地�
     int row;
     int ret;
     musicDataStruct fileData;
-    QString musicPath;
+//    QString musicPath;
     /* default cover */
     QPixmap default_photo = QPixmap(":/img/fengmian.png");
     default_photo = default_photo.scaled(40,40,Qt::KeepAspectRatio);
@@ -2249,23 +2249,23 @@ void MainWid::on_listWidget_doubleClicked(QListWidgetItem *item)//双击本地�
 
     /* play area info */
 
-    musicPath = mySideBar->myMusicListWid->localAllMusicid[row];
-    ret = g_db->getSongInfoFromLocalMusic(musicPath, fileData);
-    if(ret == DB_OP_SUCC)
-    {
-        mySideBar->myMusicListWid->Music->play();
-        isPlay = true;
-        myPlaySongArea->songText(fileData.title); // 正在播放
-        m_MiniWidget->songText(fileData.title);   //mini正在播放
-    }
-    else
-    {
-        qDebug()<<"-------从本地歌单中没有获取指定歌曲信息-------";
-        return;
-    }
-//    local_currentIndexChanged(row);
-//    mySideBar->myMusicListWid->Music->play();
-//    isPlay = true;
+//    musicPath = mySideBar->myMusicListWid->localAllMusicid[row];
+//    ret = g_db->getSongInfoFromLocalMusic(musicPath, fileData);
+//    if(ret == DB_OP_SUCC)
+//    {
+//        mySideBar->myMusicListWid->Music->play();
+//        isPlay = true;
+//        myPlaySongArea->songText(fileData.title); // 正在播放
+//        m_MiniWidget->songText(fileData.title);   //mini正在播放
+//    }
+//    else
+//    {
+//        qDebug()<<"-------从本地歌单中没有获取指定歌曲信息-------";
+//        return;
+//    }
+    local_currentIndexChanged(row);
+    mySideBar->myMusicListWid->Music->play();
+    isPlay = true;
     /* ===to do: add to history table */
     ret = g_db->addMusicToHistoryMusic(fileData.filepath);
     if (ret == DB_OP_SUCC) {
@@ -2334,6 +2334,7 @@ void MainWid::on_musicListChangeWid_doubleClicked(QListWidgetItem *item)
     /* to do */
 
     /* play area info */
+
     musicPath = mySideBar->musicListChangeWid[mySideBar->currentSelectList]->localAllMusicid[row];
     ret = g_db->getSongInfoFromPlayList(fileData, musicPath, mySideBar->playListName[mySideBar->currentMusicPlaylist]);
     if(ret == DB_OP_SUCC)
@@ -3445,6 +3446,7 @@ void MainWid::PlayModeChanged()
         qDebug()<<"CurrentItemInLoop :"<<playMode;
         break;
 
+
     case 1:
         ++playMode;
         myPlaySongArea->playModeBtn->setFixedSize(16,16);
@@ -3536,6 +3538,7 @@ void MainWid::show_volumeBtn()
         sliderWid->show();
         sliderWid->raise();
     }
+    sliderWid->vSlider->setValue(sliderWid->vSlider->value() + 5);
 }
 
 void MainWid::moveSliderWid()

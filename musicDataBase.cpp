@@ -881,7 +881,6 @@ int MusicDataBase::addMusicToHistoryMusic(const QString& filePath)
 
             //查询历史列表中是否已有该歌曲，已有的话，返回添加失败
             int checkHistoryRes = checkIfSongExistsInHistoryMusic(filePath);
-
             //历史列表中没有这首歌，直接添加
             if(SONG_NOT_FOUND == checkHistoryRes)
             {
